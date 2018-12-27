@@ -14,23 +14,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-# Location of basic_ldap_auth-wrapper.static file
-STATIC_USERS="basic_ldap_auth-wrapper.static"
-
-# Location of basic_ldap_auth-wrapper.denied file
-DENIED_USERS="basic_ldap_auth-wrapper.denied"
-
 # Location of basic_ldap_auth
 BASIC_LDAP_AUTH="/usr/lib64/squid/basic_ldap_auth"
-
 # LDAP connection protocol, server and port
 LDAP_CONNECTION="ldaps://ldap.domain.com:636"
-
 # LDAP base to serach users. May be more than one separated by blanks
 LDAP_BASE=("o=group1,c=domain,c=com" "o=group2,c=domain,c=com")
-
 # LDAP options passed to basic_ldap_auth
 LDAP_OPTIONS="-v 3"
-
 # LDAP filter passed to basic_ldap_auth
 LDAP_FILTER="(&(uid=%s)(!(objectClass=sympaMailList)))"
