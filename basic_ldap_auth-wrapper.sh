@@ -16,67 +16,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#
-# INSTALL
-#
-# 1. touch /etc/squid/basic_ldap_auth-wrapper.static; chmod 640 /etc/squid/basic_ldap_auth-wrapper.static
-# 2. touch /etc/squid/basic_ldap_auth-wrapper.denied; chmod 640 /etc/squid/basic_ldap_auth-wrapper.denied
-# 3. vi /etc/squid/squid.conf
-#   ...
-#   auth_param  basic program        /etc/squid/basic_ldap_auth-wrapper.sh
-#   auth_param  basic children       10
-#   auth_param  basic realm          Introduzca su usuario y clave de acceso de navegación Web
-#   auth_param  basic credentialsttl 12 hours
-#   auth_param  basic casesensitive  on
-#   acl         basic_ldap_users     proxy_auth REQUIRED
-#   ...
-#   http_access allow basic_ldap_users all
-#   ...
-#
-
-#
-# FILE FORMAT
-#
-# - basic_ldap_auth-wrapper.static. "Static" users list with format:
-#     <USERNAME> <CLEAR_PASSWORD>
-#
-# - basic_ldap_auth-wrapper.denied. Denied users list with format:
-#     <USERNAME>
-
 ###############################################################################
 # CONSTANTS
 ###############################################################################
 
-VERSION=1.2
+VERSION=1.3
+CONFIG_FILE="settings.conf"
+STATIC_USERS="static.conf"
+DENIED_USERS="denied.conf"
 
 ###############################################################################
-# CONFIGURATION
+# DEFAULT CONFIGURATION
 ###############################################################################
 
-# Location of basic_ldap_auth-wrapper.static file
-STATIC_USERS="/etc/squid/basic_ldap_auth-wrapper.static"
-
-# Location of basic_ldap_auth-wrapper.denied file
-DENIED_USERS="/etc/squid/basic_ldap_auth-wrapper.denied"
-
-# Location of basic_ldap_auth
 BASIC_LDAP_AUTH="/usr/lib64/squid/basic_ldap_auth"
-
-# LDAP connection protocol, server and port
 LDAP_CONNECTION="ldaps://ldap.domain.com:636"
-
-# LDAP base to serach users. May be more than one separated by blanks
-LDAP_BASE=("o=group1,c=domain,c=com" "o=group2,c=domain,c=com")
-
-# LDAP options passed to basic_ldap_auth
+LDAP_BASE=("c=domain,c=com")
 LDAP_OPTIONS="-v 3"
-
-# LDAP filter passed to basic_ldap_auth
-LDAP_FILTER="(&(uid=%s)(!(objectClass=sympaMailList)))"
+LDAP_FILTER="(uid=%s)"
 
 ###############################################################################
 # MAIN CODE
 ###############################################################################
+
+if [ -f ${CONFIG_FILE} ]; then . ${CONFIG_FILE}; fi
 
 while read input
 do
