@@ -38,6 +38,24 @@ http_access allow basic_ldap_users all
 ...
 ```
 
+### Archivos de configuración
+
+#### denied.conf
+
+Este archivo incluye una lista de todos los usuarios a los cuales se les va a denegar el acceso sin necesidad de comprobar sus credenciales.
+
+Los usuarios se insertan dentro del archivo, a razón de uno por línea.
+
+#### static.conf
+
+Este archivo incluye una lista de todos los usuarios con credenciales estáticas (que no están incluídos en el LDAP), a los cuales se les va a permitir el acceso.
+
+Los usuarios se insertan dentro del archivo, a razón de uno por línea, especificando su nombre de usuario y su contraseña, separados por un espacio en blanco.
+
+#### settings.conf
+
+Es el archivo principal de configuración del script. Dentro de la plantilla que se adjunta están explicadas cada una de las opciones disponibles, así como el formato de las mismas.
+
 ## SELinux
 
 En el caso de tener SELinux habilitado en el servidor, es posible que Squid no tenga permisos sobre basic_ldap_auth-wrapper.sh.
