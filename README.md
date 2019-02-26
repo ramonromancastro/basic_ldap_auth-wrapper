@@ -63,3 +63,8 @@ Es el archivo principal de configuración del script. Dentro de la plantilla que
 En el caso de tener SELinux habilitado en el servidor, es posible que Squid no tenga permisos sobre basic_ldap_auth-wrapper.sh.
 
 En estos momentos estoy investigando cuales son los privilegios necesarios para poder terner permisos de acceso. Mientras tanto, **es necesario deshabilitar SELinux** para una correcta ejecución.
+
+NOTA: En la actualidad, el problema de compatibilidad con SELinux se soluciona ejecutando el comando
+```
+setsebool -P authlogin_nsswitch_use_ldap 1
+```
