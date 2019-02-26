@@ -2,7 +2,7 @@
 
 # basic_ldap_auth-wrapper
 
-basic_ldap_auth-wrapper es un wrapper del script de autenticación contra LDAP para [Squid Cache] (http://www.squid-cache.org/) [*basic_ldap_auth*] (http://www.squid-cache.org/Versions/v4/manuals/basic_ldap_auth.html), que añade soporte para autenticar contra más de un LDAP, así como la posibilidad de utilizar usuario estáticos para permitir y denegar el acceso.
+basic_ldap_auth-wrapper es un wrapper del script de autenticación contra LDAP para [Squid Cache](http://www.squid-cache.org/) [*basic_ldap_auth*](http://www.squid-cache.org/Versions/v4/manuals/basic_ldap_auth.html), que añade soporte para autenticar contra más de un LDAP, así como la posibilidad de utilizar usuario estáticos para permitir y denegar el acceso.
 
 ## Instrucciones de instalación
 
