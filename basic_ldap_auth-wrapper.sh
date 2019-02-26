@@ -39,6 +39,8 @@ LDAP_FILTER="(uid=%s)"
 # MAIN CODE
 ###############################################################################
 
+shopt -s extglob
+
 if [ -f ${CONFIG_FILE} ]; then . ${CONFIG_FILE}; fi
 
 while read input
@@ -58,6 +60,7 @@ do
 	
 	for BASEDN in "${LDAP_BASE[@]}"; do
 		result=`echo "$input" | ${BASIC_LDAP_AUTH} -b "${BASEDN}" -f "${LDAP_FILTER}" -H ${LDAP_CONNECTION} ${LDAP_OPTIONS} 2> /dev/null`
+		result=${result%%*( )}
 		if [ "$result" == "OK" ]; then echo "$result"; break; fi
 	done
 
@@ -73,3 +76,5 @@ do
 	
 	echo $output
 done
+
+shopt -u extglob
