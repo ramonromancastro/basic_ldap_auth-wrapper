@@ -20,8 +20,8 @@ cp denied.conf.template denied.conf
 # Set files ownership and permissions
 cd ..
 chown root:squid -R basic_ldap_auth-wrapper
-find basic_ldap_auth-wrapper/ -name "*.conf" -exec chmod 640 {} \;
-find basic_ldap_auth-wrapper/ -name "*.sh" -exec chmod 750 {} \;
+find basic_ldap_auth-wrapper/ -name "*.conf" -exec chmod 0640 {} \;
+find basic_ldap_auth-wrapper/ -name "*.sh" -exec chmod 0750 {} \;
 ```
 
 ### Configuración de Squid
