@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.4 - 2020-08-09
 ### Added
-- Los usuarios estáticos pueden estar definidos en un archivo NCSA.
-- Añadida la variable de configuración USERS_FILE_TYPE para definir el tipo de archivo de los usuarios estáticos (plain|ncsa).
+- Los usuarios estáticos pueden estar definidos en un archivo NCSA (Gracias a **Ulrich Mück**).
+- Añadida la variable de configuración STATIC_USERS_TYPE para definir el tipo de archivo de los usuarios estáticos (plain|ncsa).
 - Añadida la variable de configuración BASIC_NCSA_AUTH.
 
 ### Fixed

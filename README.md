@@ -52,7 +52,14 @@ Los usuarios se insertan dentro del archivo, a razón de uno por línea.
 
 Este archivo incluye una lista de todos los usuarios con credenciales estáticas (que no están incluídos en el LDAP), a los cuales se les va a permitir el acceso.
 
-Los usuarios se insertan dentro del archivo, a razón de uno por línea, especificando su nombre de usuario y su contraseña, separados por un espacio en blanco.
+El formato de este archivo puede ser:
+
+- Texto plano (plain).
+- Texto encriptado (NCSA).
+
+En el archivo de texto plano, los usuarios se insertan dentro del archivo, a razón de uno por línea, especificando su nombre de usuario y su contraseña, separados por un espacio en blanco.
+
+En el archivo de texto encriptado, los usuarios se administran a través de la utilidad *htpasswd*.
 
 #### settings.conf
 
